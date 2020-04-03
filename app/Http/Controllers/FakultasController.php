@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use App\Fakultas;
 
@@ -16,7 +17,7 @@ class FakultasController extends Controller
     {
         $data = Fakultas::when($request->searchInput, function($query) use($request){
             $query->where('name', 'LIKE', '%'.$request->searchInput.'%');
-        })->get();
+        })->paginate(10);
 
         return view('fakultas.index', compact('data'));
     }

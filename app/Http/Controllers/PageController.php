@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function landingPage(){
-        return view('fakultas.index');
+    public function login(){
+        return view('authentication.login');
+    }
+
+    public function register(){
+        return view('authentication.register');
     }
 }
