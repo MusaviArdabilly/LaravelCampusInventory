@@ -4855,7 +4855,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #007bff;
+  color: #343a40;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
@@ -4888,8 +4888,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
   z-index: 1;
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #343a40;
+  border-color: #000000;
 }
 
 .page-item.disabled .page-link {
@@ -6584,6 +6584,10 @@ button.bg-light:focus {
   background-color: #dae0e5 !important;
 }
 
+.bg-darks {
+  background-color: #394046 !important;
+}
+
 .bg-dark {
   background-color: #343a40 !important;
 }
@@ -7901,8 +7905,12 @@ button.bg-dark:focus {
   min-height: 100vh !important;
 }
 
-.min-vh-80 {
+.min-vh-84 {
   min-height: 84vh !important;
+}
+
+.min-vh-89 {
+  min-height: 89vh !important;
 }
 
 .vw-100 {
@@ -8052,6 +8060,14 @@ button.bg-dark:focus {
 .mt-5,
 .my-5 {
   margin-top: 3rem !important;
+}
+
+.mt-6 {
+  margin-top: 4rem !important;
+}
+
+.mt-10{
+  margin-top: 6rem !important;
 }
 
 .mr-5,
