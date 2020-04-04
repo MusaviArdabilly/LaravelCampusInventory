@@ -15,19 +15,25 @@
 //     return view('welcome');
 // });
 
-Route::get('/fakultas', 'FakultasController@index');
+Route::get('/', 'PageController@dashboard');
 
-Route::get('jurusan/edit/{id}', 'FakultasController@edit');
 
-Route::post('jurusan/update/{id}', 'FakultasController@update');
+Route::get('fakultas', 'FakultasController@index');
+ 
+Route::post('fakultas/store', 'FakultasController@store');
 
+Route::get('fakultas/edit/{id}', 'FakultasController@edit');
+
+Route::post('fakultas/update/{id}', 'FakultasController@update');
+
+Route::get('fakultas/delete/{id}', 'FakultasController@destroy'); //
 
  
-Route::get('/jurusan', 'JurusanController@index');
- 
-Route::post('jurusan/store', 'JurusanController@store')->name('jurusan.store');
+Route::get('jurusan', 'JurusanController@index');
 
 Route::get('jurusan/search', 'JurusanController@search');
+ 
+Route::post('jurusan/store', 'JurusanController@store');
 
 Route::get('jurusan/edit/{id}', 'JurusanController@edit');
 
