@@ -44,8 +44,8 @@
 	        <div class="h5 mb-2">
 	        	Core
 	        </div>
-	        <div class="h6 text-light ml-2"><a href="#"></a>
-	        	Dashboard
+	        <div class="h6 text-light ml-2">
+	        	<a href="/"  class="text-light text-decoration-none">Dashboard</a>
 	        </div>
 	        <div class="h6 ml-2">
 	        	<a href="/fakultas" class="text-light text-decoration-none">Fakultas</a>
