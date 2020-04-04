@@ -11,6 +11,8 @@
 	<link href="{{ asset('vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+	<link href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&display=swap') }}" rel="stylesheet">
+
 	<script src="{{ asset('https://code.jquery.com/jquery-3.3.1.slim.min.js') }}"></script>
 	<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js') }}"></script>
 	<script src="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js') }}"></script>

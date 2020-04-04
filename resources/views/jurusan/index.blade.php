@@ -62,7 +62,7 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <label>nama fakultas</label><br>
+                        <label>Nama Fakultas</label><br>
                         <select name="id_fakultas" class="form-control">
                             @foreach($fakultas as $f)
                             <option value="{{ $f->id }}">{{ $f->name }}</option>

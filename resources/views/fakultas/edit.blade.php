@@ -20,8 +20,7 @@
           </a>
           </div>
           <div class="card-body">
-            <form action="{{ url('fakultas/edit') }}" method="POST" enctype="multipart/form-data">
-              <input type="hidden" name="_method" value="PUT">
+            <form action="{{ url('fakultas/update/'.$fakultas->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label>Name</label>
