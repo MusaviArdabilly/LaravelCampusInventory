@@ -40,7 +40,11 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fakultas = new Fakultas;
+        $fakultas->name = $request->name;
+        $fakultas->save();
+
+        return redirect('/fakultas');
     }
 
     /**
@@ -60,9 +64,11 @@ class FakultasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) 
     {
-        //
+        $fakultas = Fakultas::findOrFail($id);
+
+        return view('fakultas.edit', compact('fakultas'));
     }
 
     /**
@@ -74,7 +80,12 @@ class FakultasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $fakultas = Fakultas::find($id);
+        $fakultas->name = $request->name;
+        $fakultas->save();
+
+        return redirect('/fakultas');
     }
 
     /**
@@ -85,6 +96,9 @@ class FakultasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fakultas = Fakultas::findOrFail($id);
+        $fakultas->delete();
+
+        return redirect('/fakultas');
     }
 }

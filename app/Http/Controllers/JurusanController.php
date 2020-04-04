@@ -95,8 +95,8 @@ class JurusanController extends Controller
     {
         $jurusan = Jurusan::findOrFail($id);
         $fakultas = Fakultas::all();
+        
         return view('jurusan.edit', compact('fakultas', 'jurusan'));
-
     }
 
     /**
