@@ -8,5 +8,7 @@ class Fakultas extends Model
 {
     protected $table = 'fakultas';
 
-    protected $fillable = ['name'];
+    protected $primaryKey = 'id';
+
+    protected $fillable = ['faculty'];
 }
