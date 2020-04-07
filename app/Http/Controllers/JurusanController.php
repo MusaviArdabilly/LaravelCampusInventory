@@ -15,37 +15,39 @@ class JurusanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function index(Request $request)
-    // {
+
+    // public function index(Request $request){
+    //     $data = Jurusan::when($request->searchInput, function($query) use ($request){
+    //         $query->where('major', 'LIKE', '%'.$request->searchInput.'%')
+    //             ->orwhere('faculty', 'LIKE', '%'.$request->searchInput.'%');
+    //     })->join('fakultas', 'fakultas.id', '=', 'jurusan.id_fakultas')->paginate(10);
+
     //     $fakultas = Fakultas::all();
-    //     $data = Jurusan::when($request->searchInput, function($query) use($request){
-    //         $query->where('name', 'LIKE', '%'.$request->searchInput.'%');
-    //     })->paginate(10);
 
-    //     return view('jurusan.index', compact('data', 'fakultas'));
+    //     return view('jurusan.index', compact('data', 'fakultas')) ->with('i', (request()->input('page', 1) - 1) * 10);
     // }
-
-    public function search(Request $request){
-        $fakultas = Fakultas::all();
-        $search = $request->searchInput;
-        $searchFakultas = DB::table('Fakultas')
-                            ->select('id')
-                            ->where('name', 'LIKE', '%'.$search.'%')
-                            ->first();
-
-        if(is_object($searchFakultas)){
-            $src = get_object_vars($searchFakultas);
-            $data = DB::table('Jurusan')->where('id_fakultas', '=', $src)->paginate(10);
-
-            return view('jurusan.index', compact('data','fakultas'));
-        }
-    }
 
     public function index(Request $request){
         $data = Jurusan::paginate(10);
         $fakultas = Fakultas::all();
 
         return view('jurusan.index', compact('data','fakultas'));
+    }
+
+    public function search(Request $request){
+        $fakultas = Fakultas::all();
+        $search = $request->searchInput;
+        $searchFakultas = DB::table('fakultas')
+                            ->select('id')
+                            ->where('faculty', 'LIKE', '%'.$search.'%')
+                            ->first();
+
+        if(is_object($searchFakultas)){
+            $src = get_object_vars($searchFakultas);
+            $data = DB::table('jurusan')->where('id_fakultas', '=', $src)->paginate(10);
+
+            return view('jurusan.index', compact('data','fakultas'));
+        }
     }
 
     /**
@@ -67,7 +69,7 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $jurusan = new Jurusan;
-        $jurusan->name = $request->name;
+        $jurusan->major = $request->major;
         $jurusan->id_fakultas = $request->id_fakultas;
         $jurusan->save();
 
@@ -93,7 +95,7 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
-        $jurusan = Jurusan::findOrFail($id);
+        $jurusan = Jurusan::find($id);
         $fakultas = Fakultas::all();
         
         return view('jurusan.edit', compact('fakultas', 'jurusan'));
@@ -108,8 +110,8 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $jurusan = Jurusan::findOrFail($id);
-        $jurusan->name = $request->name;
+        $jurusan = Jurusan::find($id);
+        $jurusan->major = $request->major;
         $jurusan->id_fakultas = $request->id_fakultas;
         $jurusan->save();
 

@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
-use App\Fakultas;
+use App\Ruangan;
+use App\Jurusan;
 
-class FakultasController extends Controller
+class RuanganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +16,12 @@ class FakultasController extends Controller
      */
     public function index(Request $request)
     {
-        $data = Fakultas::when($request->searchInput, function($query) use($request){
-            $query->where('faculty', 'LIKE', '%'.$request->searchInput.'%');
+        $data = Ruangan::when($request->searchInput, function($query) use($request){
+            $query->where('room', 'LIKE', '%'.$request->searchInput.'%');
         })->paginate(10);
+        $jurusan = Jurusan::all();
 
-        return view('fakultas.index', compact('data'));
+        return view('ruangan.index', compact('data', 'jurusan'));
     }
 
     /**
@@ -40,11 +42,12 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
-        $fakultas = new Fakultas;
-        $fakultas->faculty = $request->name;
-        $fakultas->save();
+        $ruangan = new Ruangan;
+        $ruangan->room = $request->room;
+        $ruangan->id_jurusan = $request->id_jurusan;
+        $ruangan->save();
 
-        return redirect('/fakultas');
+        return redirect('/ruangan');
     }
 
     /**
@@ -55,7 +58,7 @@ class FakultasController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -64,11 +67,10 @@ class FakultasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) 
+    public function edit($id)
     {
-        $fakultas = Fakultas::find($id);
-
-        return view('fakultas.edit', compact('fakultas'));
+        $ruangan = Ruangan::find($id);
+        return view('ruangan.edit', compact('ruangan'));
     }
 
     /**
@@ -80,11 +82,11 @@ class FakultasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $fakultas = Fakultas::find($id);
-        $fakultas->faculty = $request->faculty;
-        $fakultas->save();
+        $ruangan = Ruangan::find($id);
+        $ruangan->room = $request->name;
+        $ruangan->save();
 
-        return redirect('/fakultas');
+        return redirect('/ruangan');
     }
 
     /**
@@ -95,9 +97,9 @@ class FakultasController extends Controller
      */
     public function destroy($id)
     {
-        $fakultas = Fakultas::find($id);
-        $fakultas->delete();
+        $ruangan = Ruangan::find($id);
+        $ruangan->delete();
 
-        return redirect('/fakultas');
+        return redirect('/ruangan');
     }
 }
