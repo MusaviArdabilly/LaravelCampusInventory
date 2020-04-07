@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container min-vh-89">
+<div class="container min-vh-95">
     <div class="register-form center bg-dark">
       <h1>Registration</h1>
 
@@ -13,10 +13,10 @@
         </center>
       @endif
 
-      <form class="form-signin" method="POST" action="{{ url('/register') }}" autocomplete="off">
+      <form class="form-signin" method="POST" action="{{ url('/postregister') }}" autocomplete="off">
         {{ csrf_field() }}
         <div class="form-label-group" style="margin-bottom: 32px;">
-          <input type="text" id="inputEmail" class="form-control" name="name" placeholder="Username" required autofocus>
+          <input type="text" id="inputEmail" class="form-control" name="username" placeholder="Username" required autofocus>
           <!-- <label for="inputEmail">Email address</label> -->
         </div>
 
