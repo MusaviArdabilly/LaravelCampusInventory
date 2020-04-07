@@ -26,43 +26,28 @@
 			    <span class="navbar-toggler-icon"></span>
 		    </button>
 		    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		    @if (Auth::guest()) 
 			    <div class="navbar-nav ml-auto">
 			      <a class="nav-item nav-link" href="/login">Login</a>
 			      <a class="nav-item nav-link" href="/register">Register</a>
 			    </div>
+			@else
+				<div class="navbar-nav dropdown ml-auto">
+					<a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			            <span>
+			                {{ auth()->user()->username }}
+			            </span>
+		            </a>
+		            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		              	<a class="dropdown-item" href="/logout">Log Out</a>
+		            </div>
+				</div>
+			@endif
 		    </div>
 		</div>
 	</nav>
 
-	<div id="content" class="fixed-left">
-        <div class="wrapper bg-darks">
-	    <!-- Sidebar -->
-	    <nav id="sidebar">
-	        <!-- <div class="sidebar-header">
-	            <h4>Campus Inventory</h4>
-	        </div> -->	        
-	        <div class="h5 mb-2">
-	        	Core
-	        </div>
-	        <div class="h6 text-light ml-2">
-	        	<a href="/"  class="text-light text-decoration-none">Dashboard</a>
-	        </div>
-	        <div class="h6 ml-2">
-	        	<a href="/fakultas" class="text-light text-decoration-none">Fakultas</a>
-	        </div>
-	        <div class="h6 ml-2 mb-3">
-	        	<a href="/jurusan" class=" text-light text-decoration-none">Jurusan</a>
-	        </div>
-	        <div class="h5 mb-2">
-	        	Additionnal
-	        </div>
-	        <div class="h6 text-light ml-2 mb-3"><a href="#"></a>
-	        	Report
-	        </div>
-	    </nav>
-
-		</div>
-    </div>
+	@extends( Auth::guest() ? 'layouts.nosidebar' : 'layouts.sidebar' )
 
 	<div class="sidecontent">
 		@yield('content')
