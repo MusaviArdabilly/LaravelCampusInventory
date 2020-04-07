@@ -24,7 +24,7 @@
               @csrf
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" name="name" class="form-control" value="{{ $fakultas->name }}">
+                <input type="text" name="faculty" class="form-control" value="{{ $fakultas->faculty }}">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">SAVE</button>

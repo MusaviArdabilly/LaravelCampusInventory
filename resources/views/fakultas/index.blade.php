@@ -21,7 +21,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
+                        <th scope="col">Fakultas</th>
                         <th scope="col">Action</th>
                         <!-- <th scope="col">Handle</th> -->
                     </tr>
@@ -30,7 +30,7 @@
                     @forelse($data as $key => $fakultas)
                     <tr>
                         <td scope="row" width="20px">{{ $data->firstItem() + $key }}</td>
-                        <td>{{ $fakultas->name }}</td>
+                        <td>{{ $fakultas->faculty }}</td>
                         <td><a href="{{ url('fakultas/edit/'.$fakultas->id) }}">Edit</a> - <a href="{{ url('fakultas/delete/'.$fakultas->id) }}">Delete</a></td>
                     </tr>
                     @empty
