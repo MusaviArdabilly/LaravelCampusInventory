@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFakultasTable extends Migration
+class CreateRuanganTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateFakultasTable extends Migration
      */
     public function up()
     {
-        Schema::create('fakultas', function (Blueprint $table) {
+        Schema::create('ruangan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('faculty', 255);
+            $table->string('room', 255);
+            $table->bigInteger('id_jurusan')->unsigned();
             $table->timestamps();
+
+            $table->foreign('id_jurusan')->references('id')->on('jurusan')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
@@ -27,6 +32,6 @@ class CreateFakultasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fakultas');
+        Schema::dropIfExists('ruangan');
     }
 }

@@ -15,11 +15,13 @@ class CreateJurusanTable extends Migration
     {
         Schema::create('jurusan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 255);
+            $table->string('major', 255);
             $table->bigInteger('id_fakultas')->unsigned();
             $table->timestamps();
 
-            $table->foreign('id_fakultas')->references('id')->on('fakultas');
+            $table->foreign('id_fakultas')->references('id')->on('fakultas')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
