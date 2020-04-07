@@ -23,16 +23,16 @@
             <form action="{{ url('/jurusan/update/'.$jurusan->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
-                <label>Jurusan</label>
-                <input type="text" name="name" class="form-control" value="{{ $jurusan->name }}">
-              </div>
-              <div class="form-group">
                 <label>Fakultas</label>
                 <select name="id_fakultas" class="form-control" required="">
-                  @foreach($fakultas as $f)
-                  <option value="{{ $f->id }}" {{ ($jurusan->id_fakultas == $f->id) ? 'selected' : ''}}>{{ $f->name }}</option>
+                  @foreach($fakultas as $data)
+                  <option value="{{ $data->id }}" {{ ($jurusan->id_fakultas == $data->id) ? 'selected' : ''}}>{{ $data->faculty }}</option>
                   @endforeach
                 </select>
+              </div>
+              <div class="form-group">
+                <label>Jurusan</label>
+                <input type="text" name="major" class="form-control" value="{{ $jurusan->major }}">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">SAVE</button>

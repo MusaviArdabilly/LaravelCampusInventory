@@ -21,8 +21,8 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">fakultas</th>
+                        <th scope="col">Fakultas</th>
+                        <th scope="col">Jurusan</th>
                         <th scope="col">Action</th>
                         <!-- <th scope="col">Handle</th> -->
                     </tr>
@@ -31,14 +31,14 @@
                     @forelse($data as $key => $jurusan)
                     <tr>
                         <td scope="row" width="20px">{{ $data->firstItem() + $key }}</td>
-                        <td>{{ $jurusan->name }}</td>
-                        <td>@foreach($fakultas as $f)
-                                        @if($f->id == $jurusan->id_fakultas)
-                                            {{ $f->name }}
-                                        @endif
-                                    @endforeach</td>
+                        <td>@foreach($fakultas as $faculty)
+                                @if($faculty->id == $jurusan->id_fakultas)
+                                  {{ $faculty->faculty }}
+                                @endif
+                            @endforeach
+                        </td>
+                        <td>{{ $jurusan->major }}</td>
                         <td><a href="{{ url('jurusan/edit/'.$jurusan->id) }}">Edit</a> - <a href="{{ url('jurusan/delete/'.$jurusan->id) }}">Delete</a></td>
-                        <!-- <td>@mdo</td> -->
                     </tr>
                     @empty
                     <tr>
@@ -64,13 +64,13 @@
                     <div class="modal-body">
                         <label>Nama Fakultas</label><br>
                         <select name="id_fakultas" class="form-control">
-                            @foreach($fakultas as $f)
-                            <option value="{{ $f->id }}">{{ $f->name }}</option>
+                            @foreach($fakultas as $data)
+                                <option value="{{ $data->id }}">{{ $data->faculty }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="modal-body">
-                        <input type="text" class="form-control" placeholder="Jurusan" name="name">
+                        <input type="text" class="form-control" placeholder="Jurusan" name="major">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
