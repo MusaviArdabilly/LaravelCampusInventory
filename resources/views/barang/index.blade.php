@@ -4,6 +4,8 @@
     <div class="container min-vh-100">
         @if(auth()->user()->role == "admin")
         <a href="#myModal" data-toggle="modal"><button type="button" class="btn btn-secondary mt-6">Tambah</button></a>
+        @elseif(auth()->user()->role == "staff")
+        <div class="pt-6"></div>
         @endif
         <div class="card mt-2 mb-5">
             <div class="card-header">
@@ -90,11 +92,11 @@
                     </div>
                     <div class="modal-body">
                         <label>Total Barang</label><br>
-                        <input type="text" class="form-control" placeholder="Barang" name="total">
+                        <input type="number" min="0" class="form-control" placeholder="Barang" name="total">
                     </div>
                     <div class="modal-body">
                         <label>Barang Rusak</label><br>
-                        <input type="text" class="form-control" placeholder="Barang" name="broken">
+                        <input type="number" min="0" class="form-control" placeholder="Barang" name="broken">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
