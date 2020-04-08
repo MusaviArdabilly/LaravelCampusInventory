@@ -78,6 +78,7 @@
  }
  .register-form h1{
   font-weight: bold;
+  font-size: 2.5rem;
   margin-bottom: 50px;
  }
  .register-form hr{
@@ -98,6 +99,7 @@
  }
  .login-form h1{
   font-weight: bold;
+  font-size: 2.5rem;
   margin-bottom: 50px;
  }
  .login-form hr{
