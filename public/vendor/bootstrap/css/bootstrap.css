@@ -8222,6 +8222,10 @@ button.bg-dark:focus {
   padding-top: 3rem !important;
 }
 
+.pt-6{
+  padding-top: 4rem
+}
+
 .pr-5,
 .px-5 {
   padding-right: 3rem !important;
