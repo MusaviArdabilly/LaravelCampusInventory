@@ -31,7 +31,7 @@
                     <tr>
                         <td scope="row" width="20px">{{ $data->firstItem() + $key }}</td>
                         <td>{{ $fakultas->faculty }}</td>
-                        <td><a href="{{ url('fakultas/edit/'.$fakultas->id) }}">Edit</a> - <a href="{{ url('fakultas/delete/'.$fakultas->id) }}">Delete</a></td>
+                        <td><a href="{{ url('fakultas/edit/'.$fakultas->id) }}">Edit</a> - <a href="{{ url('fakultas/delete/'.$fakultas->id) }}" onclick="return confirm('Anda ingin menghapus data Fakultas {{ $fakultas->faculty}}?')">Delete</a></td>
                     </tr>
                     @empty
                     <tr>

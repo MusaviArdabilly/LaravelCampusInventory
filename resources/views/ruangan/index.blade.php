@@ -33,7 +33,7 @@
                         <td scope="row" width="20px">{{ $data->firstItem() + $key }}</td>
                         <td>{{ $ruangan->jurusan->major }}</td>
                         <td>{{ $ruangan->room }}</td>
-                        <td><a href="{{ url('ruangan/edit/'.$ruangan->id) }}">Edit</a> - <a href="{{ url('ruangan/delete/'.$ruangan->id) }}">Delete</a></td>
+                        <td><a href="{{ url('ruangan/edit/'.$ruangan->id) }}">Edit</a> - <a href="{{ url('ruangan/delete/'.$ruangan->id) }}" onclick="return confirm('Anda ingin menghapus data Ruangan {{ $ruangan->room}} ?')">Delete</a></td>
                     </tr>
                     @empty
                     <tr>

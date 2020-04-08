@@ -28,17 +28,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($data as $key => $jurusan)
+                    @forelse($data as $key => $majors)
                     <tr>
                         <td scope="row" width="20px">{{ $data->firstItem() + $key }}</td>
                         <td>@foreach($fakultas as $faculty)
-                                @if($faculty->id == $jurusan->id_fakultas)
+                                @if($faculty->id == $majors->id_fakultas)
                                   {{ $faculty->faculty }}
                                 @endif
                             @endforeach
                         </td>
-                        <td>{{ $jurusan->major }}</td>
-                        <td><a href="{{ url('jurusan/edit/'.$jurusan->id) }}">Edit</a> - <a href="{{ url('jurusan/delete/'.$jurusan->id) }}">Delete</a></td>
+                        <td>{{ $majors->major }}</td>
+                        <td><a href="{{ url('jurusan/edit/'.$majors->id) }}">Edit</a> - <a href="{{ url('jurusan/delete/'.$majors->id) }}" onclick="return confirm('Anda ingin menghapus data Jurusan {{ $majors->major}}?')">Delete</a></td>
                     </tr>
                     @empty
                     <tr>
@@ -64,8 +64,8 @@
                     <div class="modal-body">
                         <label>Nama Fakultas</label><br>
                         <select name="id_fakultas" class="form-control">
-                            @foreach($fakultas as $data)
-                                <option value="{{ $data->id }}">{{ $data->faculty }}</option>
+                            @foreach($fakultas as $faculty)
+                                <option value="{{ $faculty->id }}">{{ $faculty->faculty }}</option>
                             @endforeach
                         </select>
                     </div>

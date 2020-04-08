@@ -26,7 +26,7 @@
                 <label>Fakultas</label>
                 <select name="id_fakultas" class="form-control" required="">
                   @foreach($fakultas as $data)
-                  <option value="{{ $data->id }}" {{ ($jurusan->id_fakultas == $data->id) ? 'selected' : ''}}>{{ $data->faculty }}</option>
+                      <option value="{{ $data->id }}" {{ ($jurusan->id_fakultas == $data->id) ? 'selected' : ''}}>{{ $data->faculty }}</option>
                   @endforeach
                 </select>
               </div>

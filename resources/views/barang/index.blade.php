@@ -53,7 +53,7 @@
                                 @endif
                             @endforeach
                         </td>
-                        <td><a href="{{ url('barang/edit/'.$barang->id) }}">Edit</a> @if(auth()->user()->role == "admin") - <a href="{{ url('barang/delete/'.$barang->id) }}">Delete</a> @endif </td>
+                        <td><a href="{{ url('barang/edit/'.$barang->id) }}">Edit</a> @if(auth()->user()->role == "admin") - <a href="{{ url('barang/delete/'.$barang->id) }}" onclick="return confirm('Anda ingin menghapus data Barang {{ $barang->item}}?')">Delete</a> @endif </td>
                     </tr>
                     @empty
                     <tr>
