@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Pagination\LengthAwarePaginator;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\BarangExport;
 use Illuminate\Http\Request;
 use App\Barang;
 use App\Ruangan;
@@ -113,5 +115,9 @@ class BarangController extends Controller
         $barang->delete();
 
         return redirect('/barang');
+    }
+
+    public function export(Request $request){
+        return Excel::download(new BarangExport, date("Y-m-d").'-Data Barang'.'.xlsx');
     }
 }
