@@ -4,6 +4,7 @@
     <div class="container min-vh-100">
         @if(auth()->user()->role == "admin")
         <a href="#myModal" data-toggle="modal"><button type="button" class="btn btn-secondary mt-6">Tambah</button></a>
+        <a href="/barang/export"><button type="button" class="btn btn-secondary mt-6">Export</button></a>
         @elseif(auth()->user()->role == "staff")
         <div class="pt-6"></div>
         @endif
