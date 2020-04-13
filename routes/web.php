@@ -37,10 +37,8 @@ Route::group(['middleware' => ['auth','role:admin']], function(){
 
 	Route::get('fakultas/delete/{id}', 'FakultasController@destroy');
 
-	 
-	Route::get('jurusan', 'JurusanController@index');
 
-	Route::get('jurusan/search', 'JurusanController@search');
+	Route::get('jurusan', 'JurusanController@index');
 	 
 	Route::post('jurusan/store', 'JurusanController@store');
 
@@ -50,10 +48,10 @@ Route::group(['middleware' => ['auth','role:admin']], function(){
 
 	Route::get('jurusan/delete/{id}', 'JurusanController@destroy');
 
+	Route::get('jurusan/search', 'JurusanController@search');
+
 	 
 	Route::get('ruangan', 'RuanganController@index');
-
-	Route::get('ruangan/search', 'RuanganController@search');
 	 
 	Route::post('ruangan/store', 'RuanganController@store');
 
@@ -62,6 +60,8 @@ Route::group(['middleware' => ['auth','role:admin']], function(){
 	Route::post('ruangan/update/{id}', 'RuanganController@update');
 
 	Route::get('ruangan/delete/{id}', 'RuanganController@destroy');
+
+	// Route::get('ruangan/search', 'RuanganController@search');
 
 });
 
@@ -72,7 +72,7 @@ Route::group(['middleware' => ['auth','role:admin,staff']], function(){
 
 	Route::get('barang', 'BarangController@index');
 
-	Route::get('barang/search', 'BarangController@search');
+	Route::get('barang/export', 'BarangController@export');
 	 
 	Route::post('barang/store', 'BarangController@store');
 
@@ -81,5 +81,7 @@ Route::group(['middleware' => ['auth','role:admin,staff']], function(){
 	Route::post('barang/update/{id}', 'BarangController@update');
 
 	Route::get('barang/delete/{id}', 'BarangController@destroy');
+
+	// Route::get('barang/search', 'BarangController@search');
 
 });
