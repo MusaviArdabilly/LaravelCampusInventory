@@ -20,6 +20,7 @@ $factory->define(Barang::class, function (Faker $faker) {
         'item' => $faker->randomElement($list_barang),
         'total' => $faker->numberBetween($min = 3, $max = 7),
         'broken' => $faker->numberBetween($min = 0, $max = 3),
+        'itempic' => 'defitempic.png',
         'created_by' => 1,
         'id_ruangan' => $faker->unique()->randomElement([1,2,3,4,5,6,7,8,9,10])
     ];
