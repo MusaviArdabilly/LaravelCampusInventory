@@ -30,12 +30,12 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize
     {
         return [
             'No',
+            'Ruangan',
             'Barang',
             'Jumlah',
             'Rusak',
             'Dibuat Oleh',
             'Diupdate Oleh',
-            'Ruangan',
             'Created at',
             'Updated at'
         ];
