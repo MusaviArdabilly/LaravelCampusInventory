@@ -18,6 +18,7 @@ class CreateBarangTable extends Migration
             $table->string('item', 255);
             $table->integer('total');
             $table->integer('broken');
+            $table->string('itempic');
             $table->bigInteger('created_by')->unsigned()->nullable();
             $table->bigInteger('updated_by')->unsigned()->nullable();
             $table->bigInteger('id_ruangan')->unsigned();
