@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\File;
 use App\Exports\BarangExport;
 use Illuminate\Http\Request;
 use App\Barang;
@@ -46,10 +48,23 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'item' => 'required',
+            'total' => 'required',
+            'broken' => 'required',
+            'itempic' => 'required',
+            'created_by' => 'required',
+            'id_ruangan' => 'required'
+        ]);
+
+        $itempicture = 'barang-'.date('Ymdhis').'.'.$request->itempic->getClientOriginalExtension();
+        $request->itempic->move('uploads', $itempicture);
+
         $barang = new Barang;
         $barang->item = $request->item;
         $barang->total = $request->total;
         $barang->broken = $request->broken;
+        $barang->itempic =  $itempicture;
         $barang->created_by = $request->created_by;
         $barang->id_ruangan = $request->id_ruangan;
         $barang->save();
@@ -91,6 +106,16 @@ class BarangController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'item' => 'required',
+            'total' => 'required',
+            'broken' => 'required',
+            'created_by' => 'required',
+            'updated_by' => 'required',
+            'id_ruangan' => 'required',
+            'itempic' => 'required'
+        ]);
+
         $barang = Barang::find($id);
         $barang->item = $request->item;
         $barang->total = $request->total;
@@ -98,6 +123,11 @@ class BarangController extends Controller
         $barang->created_by = $request->created_by;
         $barang->updated_by = $request->updated_by;
         $barang->id_ruangan = $request->id_ruangan;
+        if( $request->itempic){
+            $itempicture = 'barang-'.date('Ymdhis').'.'.$request->itempic->getClientOriginalExtension();
+            $request->itempic->move('uploads', $itempicture);
+            $barang->itempic = $itempicture;
+        }
         $barang->save();
 
         return redirect('/barang');

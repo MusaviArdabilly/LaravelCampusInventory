@@ -68,6 +68,11 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'major' => 'required',
+            'id_fakultas' => 'required'
+        ]);
+
         $jurusan = new Jurusan;
         $jurusan->major = $request->major;
         $jurusan->id_fakultas = $request->id_fakultas;
@@ -110,6 +115,11 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'major' => 'required',
+            'id_fakultas' => 'required'
+        ]);
+
         $jurusan = Jurusan::find($id);
         $jurusan->major = $request->major;
         $jurusan->id_fakultas = $request->id_fakultas;

@@ -42,6 +42,11 @@ class RuanganController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'room' => 'required',
+            'id_jurusan' => 'required'
+        ]);
+
         $ruangan = new Ruangan;
         $ruangan->room = $request->room;
         $ruangan->id_jurusan = $request->id_jurusan;
@@ -82,6 +87,10 @@ class RuanganController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'room' => 'required',
+        ]);
+
         $ruangan = Ruangan::find($id);
         $ruangan->room = $request->name;
         $ruangan->save();

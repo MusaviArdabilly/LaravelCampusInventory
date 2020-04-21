@@ -40,6 +40,10 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'faculty' => 'required|unique:fakultas',
+        ]);
+
         $fakultas = new Fakultas;
         $fakultas->faculty = $request->name;
         $fakultas->save();
@@ -80,6 +84,10 @@ class FakultasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'faculty' => 'required|unique:fakultas',
+        ]);
+        
         $fakultas = Fakultas::find($id);
         $fakultas->faculty = $request->faculty;
         $fakultas->save();
