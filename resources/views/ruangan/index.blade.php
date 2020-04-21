@@ -3,6 +3,18 @@
 @section('content')
     <div class="container min-vh-100">
         <a href="#myModal" data-toggle="modal"><button type="button" class="btn btn-secondary mt-6">Tambah</button></a>
+        @if(count($errors) > 0)
+            <div class="card-body">
+                <div class="alert alert-danger">
+                    Create Error
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
         <div class="card mt-2 mb-5">
             <div class="card-header">
                 <div class="h2 d-flex m-0">

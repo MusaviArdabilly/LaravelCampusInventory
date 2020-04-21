@@ -1,14 +1,20 @@
 @extends('layouts.main')
 
 @section('content')
-<section class="section">
-  
-  <div class="section-header">
-    <h1>
-      Fakultas <small>Edit Data</small>
-    </h1>
-  </div>
+<section class="section mt-5">
 
+  @if(count($errors) > 0)
+    <div class="card-body">
+      <div class="alert alert-danger">
+          Update Error
+          <ul>
+              @foreach($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+    </div>
+  @endif
   <div class="section-body">
     <div class="col-12 col-md-6 col-lg-6">
         <div class="card">

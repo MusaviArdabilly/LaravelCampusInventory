@@ -8,6 +8,18 @@
         @elseif(auth()->user()->role == "staff")
         <div class="pt-6"></div>
         @endif
+        @if(count($errors) > 0)
+            <div class="card-body">
+                <div class="alert alert-danger">
+                    Create Error
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
         <div class="card mt-2 mb-5">
             <div class="card-header">
                 <div class="h2 d-flex m-0">
@@ -41,7 +53,7 @@
                     <tr>
                         <td scope="row" width="20px">{{ $data->firstItem()+$key }}</td>
                         <td>{{ $barang->ruangan->room }}</td>
-                        <td>{{ $barang->item }}</td>
+                        <td><img class="img-table" src="{{url('uploads/'.$barang->itempic)}}"> {{ $barang->item }}</td>
                         <td>{{ $barang->total }}</td>
                         <td>{{ $barang->broken }}</td>
                         <td>@foreach($user as $userdata)
@@ -98,6 +110,10 @@
                     <div class="modal-body">
                         <label>Barang Rusak</label><br>
                         <input type="number" min="0" class="form-control" placeholder="Barang" name="broken">
+                    </div>
+                    <div class="modal-body">
+                        <label>Foto Barang</label><br>
+                        <input type="file" min="0" placeholder="Foto Barang" name="itempic">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

@@ -1,18 +1,26 @@
 @extends('layouts.main')
 
 @section('content')
-<section class="section">
-  
-  <div class="section-header">
-    <h1>
-      Barang <small>Edit Data</small>
-    </h1>
-  </div>
-
+<section class="section mt-5">
+  @if(count($errors) > 0)
+    <div class="card-body">
+      <div class="alert alert-danger">
+          Update Error
+          <ul>
+              @foreach($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+    </div>
+  @endif
   <div class="section-body">
     <div class="col-12 col-md-6 col-lg-6">
         <div class="card">
           <div class="card-header">
+            <div class="h2 d-flex m-0">
+                    Barang
+                </div>
             <a href="{{ url('/barang') }}"> 
               <button type="button" class="btn btn-outline-info">
                 <i class="fas fa-arrow-circle-left"></i> Back
@@ -42,6 +50,8 @@
                 <label>Rusak</label>
                 <input type="text" name="broken" class="form-control" value="{{ $data->broken }}">
               </div>
+                <img class="img-edit mb-3" src="{{url('uploads/'.$data->itempic)}}">
+                <input type="file" name="itempic">
               <input type="hidden" name="created_by" value="{{ $data->created_by }}">
               <input type="hidden" name="updated_by" value="{{auth()->user()->id}}">
               <div class="form-group">
