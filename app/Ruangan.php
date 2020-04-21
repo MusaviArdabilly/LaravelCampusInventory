@@ -11,7 +11,7 @@ class Ruangan extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['nama_ruangan', 'id_jurusan'];
+    protected $fillable = ['room', 'id_jurusan'];
 
     public function jurusan(){
     	return $this->belongsTo(Jurusan::class, 'id_jurusan', 'id');

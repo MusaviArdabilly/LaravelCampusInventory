@@ -10,7 +10,7 @@ class Barang extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['nama_barang', 'total', 'rusak', 'id_ruangan', 'created_by', 'updated_by'];
+    protected $fillable = ['item', 'total', 'broken', 'itempic', 'id_ruangan', 'created_by', 'updated_by'];
 
     public function ruangan(){
     	return $this->belongsTo('App\Ruangan', 'id_ruangan');
