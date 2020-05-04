@@ -1,6 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
+
+<script type="text/javascript">
+  document.title="Register";
+</script>
+
 <div class="container min-vh-95">
     <div class="register-form center bg-dark">
       <h1>Registration</h1>

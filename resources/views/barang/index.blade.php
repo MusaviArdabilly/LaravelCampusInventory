@@ -1,10 +1,16 @@
 @extends('layouts.main')
 
 @section('content')
+
+<script type="text/javascript">
+  document.title="Barang";
+  document.getElementById('barang').classList.add('active');
+</script>
+
     <div class="container min-vh-100">
         @if(auth()->user()->role == "admin")
-        <a href="#myModal" data-toggle="modal"><button type="button" class="btn btn-secondary mt-6">Tambah</button></a>
-        <a href="/barang/export"><button type="button" class="btn btn-secondary mt-6">Export</button></a>
+        <a href="#myModal" data-toggle="modal"><button type="button" class="btn btn-secondary mt-5">Tambah</button></a>
+        <a href="/barang/export"><button type="button" class="btn btn-secondary mt-5">Export</button></a>
         @elseif(auth()->user()->role == "staff")
         <div class="pt-6"></div>
         @endif
@@ -53,7 +59,7 @@
                     <tr>
                         <td scope="row" width="20px">{{ $data->firstItem()+$key }}</td>
                         <td>{{ $barang->ruangan->room }}</td>
-                        <td><img class="img-table" src="{{url('uploads/'.$barang->itempic)}}"> {{ $barang->item }}</td>
+                        <td><img class="img-table" src="{{url('uploads/'.$barang->itempic)}}" onerror="this.style.display = 'none'"> {{ $barang->item }}</td>
                         <td>{{ $barang->total }}</td>
                         <td>{{ $barang->broken }}</td>
                         <td>@foreach($user as $userdata)

@@ -1,6 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
+
+<script type="text/javascript">
+  document.title="Edit Barang";
+  document.getElementById('barang').classList.add('active');
+</script>
+
 <section class="section mt-5">
   @if(count($errors) > 0)
     <div class="card-body">
@@ -19,8 +25,8 @@
         <div class="card">
           <div class="card-header">
             <div class="h2 d-flex m-0">
-                    Barang
-                </div>
+              Edit Barang
+            </div>
             <a href="{{ url('/barang') }}"> 
               <button type="button" class="btn btn-outline-info">
                 <i class="fas fa-arrow-circle-left"></i> Back

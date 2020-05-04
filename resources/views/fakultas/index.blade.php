@@ -1,8 +1,14 @@
 @extends('layouts.main')
 
 @section('content')
+
+<script type="text/javascript">
+  document.title="Fakultas";
+  document.getElementById('fakultas').classList.add('active');
+</script>
+
     <div class="container min-vh-100">
-        <a href="#myModal" data-toggle="modal"><button type="button" class="btn btn-secondary mt-6">Tambah</button></a>
+        <a href="#myModal" data-toggle="modal"><button type="button" class="btn btn-secondary mt-5">Tambah</button></a>
         @if(count($errors) > 0)
         <div class="card-body">
             <div class="alert alert-danger">

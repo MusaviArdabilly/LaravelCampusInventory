@@ -2,6 +2,11 @@
 
 @section('content')
 <section class="section mt-5">
+
+<script type="text/javascript">
+  document.title="Edit Jurusan";
+  document.getElementById('jurusan').classList.add('active');
+</script>
   
   @if(count($errors) > 0)
     <div class="card-body">
@@ -19,6 +24,9 @@
     <div class="col-12 col-md-6 col-lg-6">
         <div class="card">
           <div class="card-header">
+            <div class="h2 d-flex m-0">
+              Edit Jurusan
+            </div>
             <a href="{{ url('/jurusan') }}"> 
               <button type="button" class="btn btn-outline-info">
                 <i class="fas fa-arrow-circle-left"></i> Back

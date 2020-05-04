@@ -1,7 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container min-vh-95">
+
+<script type="text/javascript">
+  document.title="Login";
+</script>
+
+<div class="container min-vh-100">
     <div class="login-form center bg-dark">
       <h1>Log In</h1>
 
