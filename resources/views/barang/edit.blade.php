@@ -45,17 +45,18 @@
                   </select>
               </div>
               <div class="form-group">
-                <label>Barang</label>
+                <label>Nama Barang</label>
                 <input type="text" name="item" class="form-control" value="{{ $data->item }}">
               </div>
               <div class="form-group">
-                <label>Jumlah</label>
+                <label>Total Barang</label>
                 <input type="text" name="total" class="form-control" value="{{ $data->total }}">
               </div>
               <div class="form-group">
-                <label>Rusak</label>
+                <label>Barang Rusak</label>
                 <input type="text" name="broken" class="form-control" value="{{ $data->broken }}">
               </div>
+                <label>Foto Barang</label><br>
                 <img class="img-edit mb-3" src="{{url('uploads/'.$data->itempic)}}">
                 <input type="file" name="itempic">
               <input type="hidden" name="created_by" value="{{ $data->created_by }}">

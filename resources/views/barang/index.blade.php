@@ -107,15 +107,15 @@
                     </div>
                     <div class="modal-body">
                         <label>Nama Barang</label><br>
-                        <input type="text" class="form-control" placeholder="Barang" name="item">
+                        <input type="text" class="form-control" placeholder="Nama Barang" name="item">
                     </div>
                     <div class="modal-body">
                         <label>Total Barang</label><br>
-                        <input type="number" min="0" class="form-control" placeholder="Barang" name="total">
+                        <input type="number" min="0" class="form-control" placeholder="Total Barang" name="total">
                     </div>
                     <div class="modal-body">
                         <label>Barang Rusak</label><br>
-                        <input type="number" min="0" class="form-control" placeholder="Barang" name="broken">
+                        <input type="number" min="0" class="form-control" placeholder="Barang Rusak" name="broken">
                     </div>
                     <div class="modal-body">
                         <label>Foto Barang</label><br>
