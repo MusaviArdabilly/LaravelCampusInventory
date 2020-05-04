@@ -21,6 +21,8 @@ Route::post('/postlogin', 'AuthController@login');
 
 Route::post('/postregister', 'AuthController@register');
 
+Route::get('/sendemail','MailController@send');
+
 
 Route::group(['middleware' => ['auth','role:admin']], function(){
 
