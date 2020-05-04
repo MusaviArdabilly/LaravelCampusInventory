@@ -45,7 +45,7 @@ class FakultasController extends Controller
         ]);
 
         $fakultas = new Fakultas;
-        $fakultas->faculty = $request->name;
+        $fakultas->faculty = $request->faculty;
         $fakultas->save();
 
         return redirect('/fakultas');

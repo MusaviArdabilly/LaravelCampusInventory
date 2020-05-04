@@ -92,7 +92,7 @@ class RuanganController extends Controller
         ]);
 
         $ruangan = Ruangan::find($id);
-        $ruangan->room = $request->name;
+        $ruangan->room = $request->room;
         $ruangan->save();
 
         return redirect('/ruangan');
