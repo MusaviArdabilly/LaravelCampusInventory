@@ -7,7 +7,7 @@
 
 
  /*dashboard*/
- .dashboard{  
+/* .dashboard{  
   position: relative;
   margin-top: 56px;
   width: 100%;
@@ -19,12 +19,13 @@
   background-attachment: scroll;
   background-size: cover;
  }
-
+*/
  .nounderline {
   text-decoration: none !important;}
 
    #micon{
-  font-size: 24px;
+  font-size: 32px;
+  vertical-align: middle;
  }
 
   /*<link href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&display=swap') }}" rel="stylesheet">*/
