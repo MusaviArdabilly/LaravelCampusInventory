@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Pagination\LengthAwarePaginator;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\FakultasImport;
 use Illuminate\Http\Request;
 use App\Fakultas;
 
@@ -27,9 +29,18 @@ class FakultasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function import(Request $request)
     {
-        //
+        $this->validate($request, [
+            'excel' => 'required'
+        ]);
+
+        $file = $request->file('excel');
+        $filename = rand().$file->getClientOriginalName();
+        $file->move('uploads/Fakultas/',$filename);
+        Excel::import(new FakultasImport, public_path('uploads/Fakultas/'.$filename));
+
+        return redirect('/fakultas')  ;
     }
 
     /**
