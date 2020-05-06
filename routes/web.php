@@ -31,6 +31,8 @@ Route::group(['middleware' => ['auth','role:admin']], function(){
 
 	Route::get('fakultas', 'FakultasController@index');
 	 
+	Route::post('fakultas/import', 'FakultasController@import');
+
 	Route::post('fakultas/store', 'FakultasController@store');
 
 	Route::get('fakultas/edit/{id}', 'FakultasController@edit');
