@@ -7,9 +7,9 @@
   document.getElementById('dashboard').classList.add('active');
 </script>
 
-<div class="min-vh-100 pt-5">
-    <div class="d-flex justify-content-around mb-5">
-	    <div class="col-12 col-md-6 col-lg-4">
+<div class="min-vh-100 pt-5 container">
+    <div class="row justify-content-around">
+	    <div class="col-12 col-md-6 col-lg-6 mb-5">
 	    <a href="{{url('fakultas')}}" class="nounderline">
 	      <div class="card text-secondary shadow-sm rounded">
 	        <div class="card-header">
@@ -22,7 +22,7 @@
 	      </div>
 	    </a>
 	    </div>
-	    <div class="col-12 col-md-6 col-lg-4">
+	    <div class="col-12 col-md-6 col-lg-6 mb-5">
 	    <a href="{{url('jurusan')}}" class="nounderline">
 	      <div class="card text-secondary shadow-sm rounded">
 	        <div class="card-header">
@@ -36,8 +36,8 @@
 	    </a>
 	    </div>
 	</div>
-	<div class="d-flex justify-content-around">
-	    <div class="col-12 col-md-6 col-lg-4">
+	<div class="row justify-content-around">
+	    <div class="col-12 col-md-6 col-lg-6 mb-5">
 	    <a href="{{url('ruangan')}}" class="nounderline">
 	      <div class="card text-secondary shadow-sm rounded">
 	        <div class="card-header">
@@ -50,7 +50,7 @@
 	      </div>
 	    </a>
 	    </div>
-	    <div class="col-12 col-md-6 col-lg-4">
+	    <div class="col-12 col-md-6 col-lg-6 mb-5">
 	    <a href="{{url('barang')}}" class="nounderline">
 	      <div class="card text-secondary shadow-sm rounded">
 	        <div class="card-header">

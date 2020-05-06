@@ -16,7 +16,7 @@
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <button class="btn btn-link btn-sm order-1 order-lg-0 ml-3" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <button class="btn btn-link btn-sm order-0 order-lg-0 ml-2x" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <a class="navbar-brand font-weight-bold" href="/">Campus Inventory</a>
             <!-- Navbar-->
             @if (Auth::guest())
@@ -31,10 +31,10 @@
                 </ul>
             </div>
             @else
-            <div class="ml-auto mr-3">
+            <div class="ml-auto">
                 <ul class="navbar-nav ml-md-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle mr-2x" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user fa-fw"></i>
                             <span>
                                 {{ auth()->user()->username }}
@@ -102,9 +102,9 @@
             </div>
         </div>
         @endif
+        <script src="{{ asset('https://code.jquery.com/jquery-3.4.1.min.js') }}" crossorigin="anonymous"></script>
         <script src="{{ asset('js/script.js') }}"></script>
         <script src="{{ asset('vendor/fontawesome/js/all.js') }}"></script>
-        <script src="{{ asset('https://code.jquery.com/jquery-3.4.1.min.js') }}" crossorigin="anonymous"></script>
         <script src="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js') }}" crossorigin="anonymous"></script>
     </body>
 </html>

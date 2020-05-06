@@ -21,7 +21,7 @@
                 </div>
             </div>
         @endif
-        <div class="card mt-2 mb-5">
+        <div class="card mt-2 mb-5 table-responsive">
             <div class="card-header">
                 <div class="h2 d-flex m-0">
                     Ruangan

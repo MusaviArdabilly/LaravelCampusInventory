@@ -10,7 +10,7 @@
     <div class="container min-vh-100">
         @if(auth()->user()->role == "admin")
         <a href="#myModal" data-toggle="modal"><button type="button" class="btn btn-secondary mt-5">Tambah</button></a>
-        <a href="/barang/export"><button type="button" class="btn btn-secondary mt-5">Export</button></a>
+        <a href="/barang/export"><button type="button" class="btn btn-outline-secondary mt-5">Export</button></a>
         @elseif(auth()->user()->role == "staff")
         <div class="pt-6"></div>
         @endif
@@ -26,7 +26,7 @@
                 </div>
             </div>
         @endif
-        <div class="card mt-2 mb-5">
+        <div class="card mt-2 mb-5 table-responsive">
             <div class="card-header">
                 <div class="h2 d-flex m-0">
                     Barang

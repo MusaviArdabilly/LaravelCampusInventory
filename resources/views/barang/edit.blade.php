@@ -61,7 +61,7 @@
                 <input type="file" name="itempic">
               <input type="hidden" name="created_by" value="{{ $data->created_by }}">
               <input type="hidden" name="updated_by" value="{{auth()->user()->id}}">
-              <div class="form-group">
+              <div class="form-group mt-3">
                 <button type="submit" class="btn btn-primary">SAVE</button>
               </div>
               </form>
