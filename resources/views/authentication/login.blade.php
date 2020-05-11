@@ -10,14 +10,6 @@
     <div class="login-form center bg-dark">
       <h1>Log In</h1>
 
-      @if ($message = Session::get('login_failed'))
-        <center>
-          <div class="alert alert-danger col-lg-8">
-            <center><p>{{ $message }}</p></center>
-          </div>
-        </center>
-      @endif
-
       <form class="form-signin" method="POST" action="{{ url('/postlogin') }}" autocomplete="off">
         {{ csrf_field() }}
         <div class="form-label-group" style="margin-bottom: 32px;">
@@ -34,7 +26,12 @@
           <input type="checkbox" class="custom-control-input" id="customCheck1">
           <label class="custom-control-label" for="customCheck1">Remember Email</label>
         </div>
-        <button class="btn btn-md btn-primary btn-block" type="submit">Log in</button><br><hr><br>
+        <button class="btn btn-md btn-primary btn-block" type="submit">Log in</button><br>
+        @if($message = Session::get('errors'))
+          <div class="alert alert-danger text-center bg-transparent border-3 border-danger text-white">
+            {{ $message }}
+          </div>
+        @endif<hr><br>
         <div class="text-center">
           <label>Don't have an account</label>&nbsp;&nbsp;&nbsp;<a href="/register">Register</a>
         </div>

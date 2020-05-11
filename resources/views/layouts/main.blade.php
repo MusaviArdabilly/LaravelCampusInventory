@@ -16,7 +16,9 @@
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            @if (Auth::check())
             <button class="btn btn-link btn-sm order-0 order-lg-0 ml-2x" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            @endif
             <a class="navbar-brand font-weight-bold" href="/">Campus Inventory</a>
             <!-- Navbar-->
             @if (Auth::guest())
