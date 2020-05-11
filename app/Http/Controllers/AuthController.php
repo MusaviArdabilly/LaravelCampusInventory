@@ -22,8 +22,7 @@ class AuthController extends Controller
     	if(Auth::attempt($request->only('username','password'))){
     		return redirect('/');
     	}
-    	// Message salah
-    	return redirect('/login')->with('errors', 'Username atau Password anda Salah!');
+    	return redirect('/login')->with('errors', 'Anda memasukkan username atau password yang salah');
     }
 
     public function logout(){
