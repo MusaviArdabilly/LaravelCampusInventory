@@ -16,8 +16,8 @@
 
         <!-- Favicons -->
 
-        <link rel="shortcut icon" type="text/css" href="images/favicon.png">
-        <link rel="apple-touch-icon" type="text/css" href="images/apple-touch-icon.png">
+        <link rel="shortcut icon" type="text/css" href="{{ asset('images/favicon.ico') }}">
+        <link rel="apple-touch-icon" type="text/css" href="{{ asset('images/apple-touch-icon.png') }}">
 
         @laravelPWA
 
@@ -34,10 +34,10 @@
             <div class="ml-auto">
                 <ul class="navbar-nav ml-md-0 mr-5">
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" role="button">Login</a>
+                        <a class="nav-link" href="/login" role="button">Login</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" role="button">Register</a>
+                        <a class="nav-link" href="/register" role="button">Register</a>
                     </li>
                 </ul>
             </div>
